@@ -28,8 +28,8 @@ const Discover = () => {
 
   if (error_genres || error_topCharts) return <Error />;
 
-  const genres = data_genres.global.genres;
-  const title = genres.find((genre) => genre.listid === genreListId).name;
+  const genres = data_genres?.global?.genres;
+  const title = genres.find((genre) => genre.listid === genreListId)?.name;
 
   return (
     <div className="flex flex-col">
@@ -53,7 +53,7 @@ const Discover = () => {
         </select>
       </div>
 
-      <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+      <div className="flex flex-wrap justify-center gap-8">
         {data_topCharts?.tracks?.map((song, i) => (
           <SongCard
             key={song.key}
