@@ -48,6 +48,9 @@ const Sidebar = ({ login, setLogin }) => {
           alt="logo"
           className="w-full h-24 object-contain"
         />
+        <div className="lg:hidden flex justify-center font-mono text-3xl  tracking-widest font-bold text-cyan-500">
+          LOGO
+        </div>
 
         <NavLinks login={login} />
       </div>

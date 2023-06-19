@@ -28,7 +28,8 @@ const Discover = () => {
 
   if (error_genres || error_topCharts) return <Error />;
 
-  const genres = data_genres?.global?.genres;
+  const genres = data_genres?.countries;
+  // console.log(genres);
   const title = genres.find((genre) => genre.listid === genreListId)?.name;
 
   return (
