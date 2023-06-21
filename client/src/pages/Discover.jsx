@@ -28,7 +28,9 @@ const Discover = () => {
 
   if (error_genres || error_topCharts) return <Error />;
 
-  const genres = data_genres?.countries;
+  const countries = data_genres?.countries;
+  const genres = data_genres?.global?.genres;
+  console.log(data_topCharts.tracks);
   // console.log(genres);
   const title = genres.find((genre) => genre.listid === genreListId)?.name;
 
@@ -49,6 +51,19 @@ const Discover = () => {
           {genres.map((genre) => (
             <option key={genre.name} value={genre.listid}>
               {genre.name}
+            </option>
+          ))}
+        </select>
+        <select
+          onChange={(e) => {
+            return dispatch(selectGenreListId(e.target.value));
+          }}
+          value={genreListId || 'genre-global-chart-12'}
+          className="bg-black text-gray-300 p-3 text-sm rounded-lg outline-none sm:mt-0 mt-5"
+        >
+          {countries.map((country) => (
+            <option key={country.name} value={country.listid}>
+              {country.name}
             </option>
           ))}
         </select>

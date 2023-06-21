@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { BsExplicit } from 'react-icons/bs';
 
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/playerSlice';
@@ -43,10 +44,19 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
       </div>
 
       <div className="mt-4 flex flex-col">
-        <p className="font-semibold text-lg text-white truncate hover:underline">
-          <Link to={`/songs/${song?.key}`}>{song.title}</Link>
+        <p className="flex flex-row justify-start items-center text-white group">
+          <Link
+            to={`/songs/${song?.key}`}
+            className="truncate max-w-[195px] font-semibold text-lg hover:underline"
+          >
+            {song.title}
+          </Link>{' '}
+          <span className="absolute w-auto p-2 m-2 min-w-max bottom-14 start-1 rounded-md shadow-md text-white bg-gray-900 text-sm transition-all duration-100 scale-0 origin-left group-hover:scale-100">
+            {song.title}
+          </span>
+          {song?.hub?.explicit && <BsExplicit className="w-4 h-4 ml-2" />}
         </p>
-        <p className="text-sm truncate text-gray-300 mt-1 hover:underline">
+        <p className="text-sm truncate text-gray-300 mt-1 hover:underline group">
           <Link
             to={
               song.artists
@@ -56,6 +66,9 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
           >
             {song.subtitle}
           </Link>
+          <span className="absolute w-auto p-2 m-2 min-w-max -bottom-8 start-1 rounded-md shadow-md text-white bg-gray-900 text-sm transition-all duration-100 scale-0 origin-left group-hover:scale-100">
+            {song.subtitle}
+          </span>
         </p>
       </div>
     </div>
