@@ -100,7 +100,7 @@ const TopPlay = () => {
         </div>
       </div>
 
-      {/* <div className="w-full flex flex-col mt-8">
+      <div className="w-full flex flex-col mt-8">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Artists</h2>
           <Link to="/top-artists">
@@ -120,7 +120,7 @@ const TopPlay = () => {
           {topPlays?.slice(0, 5).map((artist) => (
             <SwiperSlide
               key={artist?.key}
-              style={{ width: '25%', height: 'auto' }}
+              style={{ width: '25%', height: '40px' }}
               className="shadow-lg rounded-full animate-slideright"
             >
               <Link to={`/artists/${artist?.artists[0].adamid}`}>
@@ -133,7 +133,7 @@ const TopPlay = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div> */}
+      </div>
     </div>
   );
 };

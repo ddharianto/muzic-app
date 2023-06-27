@@ -60,7 +60,7 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="relative sm:px-12 px-1 w-full md:w-[350px] flex md:flex-col items-center justify-between">
+    <div className="relative sm:px-12 px-1 w-full h-20 md:h-full md:w-[350px] flex md:flex-col items-center justify-between">
       <Track
         isPlaying={isPlaying}
         isActive={isActive}
@@ -106,7 +106,7 @@ const MusicPlayer = () => {
         onChange={(event) => setVolume(event.target.value)}
         setVolume={setVolume}
       />
-      <div className="flex flex-row items-center justify-center my-2 mb-5 group">
+      <div className="hidden md:flex flex-row items-center justify-center my-2 mb-5 group">
         <p className="leading-tight text-xs text-white bg-red-500 border-red-500 rounded border-2 mr-4">
           PREVIEW
         </p>

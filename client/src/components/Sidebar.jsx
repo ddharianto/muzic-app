@@ -42,7 +42,7 @@ const Sidebar = ({ login, setLogin }) => {
 
   return (
     <>
-      <div className="md:flex hidden flex-col  w-[350px] py-10 px-4 bg-[#191624]">
+      <div className="md:flex hidden flex-col min-w-[350px] py-10 px-4 bg-[#191624]">
         <img
           src={record_logo}
           alt="logo"
