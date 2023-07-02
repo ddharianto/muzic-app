@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Error, Loader, SongCard } from '../components';
 import { selectGenreListId } from '../redux/features/playerSlice';
 import {
-  useGetGenresQuery,
-  useShazamGetTopChartsQuery,
+  useGetListsQuery,
+  useGetTopChartQuery,
 } from '../redux/services/shazamCore';
 
 const TopChart = () => {
@@ -13,23 +13,23 @@ const TopChart = () => {
   const { genreListId } = useSelector((state) => state.player);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const {
-    data: data_genres,
+    data: data_lists,
     isFetching: isFetching_genres,
     error: error_genres,
-  } = useGetGenresQuery();
+  } = useGetListsQuery();
   const {
     data: data_topCharts,
     isFetching: isFetching_topCharts,
     error: error_topCharts,
-  } = useShazamGetTopChartsQuery(genreListId || 'genre-global-chart-12');
+  } = useGetTopChartQuery(genreListId || 'genre-global-chart-12');
 
   if (isFetching_genres || isFetching_topCharts)
     return <Loader title="Loading songs..." />;
 
   if (error_genres || error_topCharts) return <Error />;
 
-  const countries = data_genres?.countries;
-  const genres = data_genres?.global?.genres;
+  const countries = data_lists?.countries;
+  const genres = data_lists?.global?.genres;
   // console.log(data_topCharts.tracks);
   // console.log(genres);
   const title = genres.find((genre) => genre.listid === genreListId)?.name;

@@ -32,8 +32,9 @@ const Player = ({
   return (
     <audio
       src={
-        activeSong?.hub?.actions !== undefined &&
-        activeSong?.hub?.actions[1]?.uri
+        activeSong?.hub?.actions !== undefined
+          ? activeSong?.hub?.actions[1]?.uri
+          : undefined
       }
       ref={ref}
       loop={repeat}

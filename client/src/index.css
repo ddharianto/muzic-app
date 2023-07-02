@@ -15,6 +15,10 @@
   @apply text-cyan-500;
 }
 
+body {
+  background-color: #12111b;
+}
+
 .bar:nth-child(2) {
   animation-delay: 0.2s;
 }
