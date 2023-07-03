@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import { Topbar, Sidebar, MusicPlayer, Loader } from './components';
@@ -14,9 +14,13 @@ import {
   TopCharts,
 } from './pages';
 
+import { useGetListsQuery } from './redux/services/shazamCore';
+import { selectGenreListId } from './redux/features/playerSlice';
+
 const App = () => {
+  const dispatch = useDispatch();
   const [login, setLogin] = useState(false);
-  const [country, setCountry] = useState('');
+  const [country, setCountry] = useState('US');
   const [loading, setLoading] = useState(true);
   const { activeSong } = useSelector((state) => state.player);
 
@@ -28,9 +32,24 @@ const App = () => {
       .then((res) => setCountry(res?.data?.location.country))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, [country]);
+  }, []);
 
-  if (loading) return <Loader title="Loading Songs around you..." />;
+  const {
+    data: data_lists,
+    isFetching: isFetching_lists,
+    error: error_lists,
+  } = useGetListsQuery();
+
+  const countries = data_lists?.countries;
+  const country_chart = countries?.find((el) => el.id === country);
+
+  useEffect(() => {
+    dispatch(selectGenreListId(country_chart?.listid));
+    // eslint-disable-next-line
+  }, [country_chart]);
+
+  if (loading || isFetching_lists || error_lists)
+    return <Loader title="Loading Songs around you..." />;
 
   return (
     <div className="relative flex max-w-[1920px] mx-auto">
@@ -41,11 +60,14 @@ const App = () => {
         <div className="px-6 h-[calc(100vh-64px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
-              <Route path="/" element={<Discover country={country} />} />
+              <Route
+                path="/"
+                element={<Discover country_chart={country_chart} />}
+              />
               <Route path="/top-artists" element={<TopArtists />} />
               <Route
                 path="/top-charts"
-                element={<TopCharts country={country} />}
+                element={<TopCharts countries={countries} data={data_lists} />}
               />
               <Route path="/around-you" element={<AroundYou />} />
               <Route path="/artists/:id" element={<ArtistDetails />} />
