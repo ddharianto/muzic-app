@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
-import { Topbar, Sidebar, MusicPlayer, Loader } from './components';
+import { Topbar, Sidebar, MusicPlayer, Loader, Footer } from './components';
 import {
   ArtistDetails,
   TopArtists,
@@ -27,7 +27,7 @@ const App = () => {
   useEffect(() => {
     axios
       .get(
-        `https://geo.ipify.org/api/v2/country?apiKey=at_pWayRhwsKrj5C47MqZbvBbiZz1YNF`
+        `https://geo.ipify.org/api/v2/country?apiKey=${process.env.REACT_APP_GEO_API_KEY}`
       )
       .then((res) => setCountry(res?.data?.location.country))
       .catch((err) => console.log(err))
@@ -54,11 +54,11 @@ const App = () => {
   return (
     <div className="relative flex max-w-[1920px] mx-auto">
       <Sidebar login={login} setLogin={setLogin} />
-      <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
+      <div className="flex-1 flex flex-col justify-between h-screen bg-gradient-to-br from-black to-[#121286]">
         <Topbar login={login} setLogin={setLogin} />
 
-        <div className="px-6 h-[calc(100vh-64px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
-          <div className="flex-1 h-fit pb-40">
+        <div className="flex flex-col px-6 h-[calc(100vh-64px)] overflow-y-scroll hide-scrollbar">
+          <div className="flex-1 ">
             <Routes>
               <Route
                 path="/"
@@ -74,6 +74,9 @@ const App = () => {
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
             </Routes>
+            <div className="w-full mt-10 bg-white/5 text-white">
+              <Footer />
+            </div>
           </div>
         </div>
       </div>

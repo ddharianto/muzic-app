@@ -40,9 +40,6 @@ const TopChart = ({ data, countries }) => {
   const handleClick = (el) => {
     dispatch(selectGenreListId(el.listid));
   };
-  // console.log(data_topCharts.tracks);
-  // console.log(genres);
-  // const title = genres.find((genre) => genre.listid === genreListId)?.name;
 
   if (isFetching_topCharts) return <Loader title="Loading songs..." />;
 
@@ -82,7 +79,9 @@ const TopChart = ({ data, countries }) => {
         {genresSorted.map((genre) => (
           <div
             key={genre.id}
-            className="relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] text-white bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded cursor-pointer hover:ring-2"
+            className={`relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] text-white ${
+              genreListId === genre.listid ? 'bg-white/20' : 'bg-white/5'
+            }  bg-opacity-80 backdrop-blur-sm animate-slideup rounded cursor-pointer hover:ring-2 ring-cyan-500`}
             onClick={() => {
               handleClick(genre);
               setTitle(genre.name);
@@ -97,7 +96,9 @@ const TopChart = ({ data, countries }) => {
         {countriesSorted.map((country) => (
           <div
             key={country.id}
-            className="relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] text-white bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded cursor-pointer hover:ring-2"
+            className={`relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] text-white ${
+              genreListId === country.listid ? 'bg-white/20' : 'bg-white/5'
+            } bg-opacity-80 backdrop-blur-sm animate-slideup rounded cursor-pointer hover:ring-2 ring-cyan-500`}
             onClick={() => {
               handleClick(country);
               setTitle(country.name);

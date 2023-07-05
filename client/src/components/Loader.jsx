@@ -3,7 +3,7 @@ import React from 'react';
 import { record_logo } from '../assets';
 
 const Loader = ({ title }) => (
-  <div className="w-full flex justify-center items-center flex-col">
+  <div className="w-full min-h-screen flex justify-center items-center flex-col">
     <img
       src={record_logo}
       alt="loader"

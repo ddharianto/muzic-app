@@ -18,9 +18,7 @@ import 'swiper/css/free-mode';
 
 const Discover = ({ country_chart }) => {
   const dispatch = useDispatch();
-  const { genreListId, activeSong, isPlaying } = useSelector(
-    (state) => state.player
-  );
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
 
   const {
     data: data_charts,
@@ -33,8 +31,6 @@ const Discover = ({ country_chart }) => {
     isFetching: isFetching_countryCharts,
     error: error_countryCharts,
   } = useGetCountryChartQuery(country_chart?.listid);
-
-  console.log(genreListId);
 
   const country_chart_name = country_chart?.name;
 
@@ -161,7 +157,7 @@ const Discover = ({ country_chart }) => {
             song={song}
             isPlaying={isPlaying}
             activeSong={activeSong}
-            data={top_charts_sliced}
+            data={top_countryChart_sliced}
             i={i}
           />
         ))}

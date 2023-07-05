@@ -39,7 +39,7 @@ const Topbar = ({ login, setLogin }) => {
 
   return (
     <>
-      <div className="flex flex-row items-center justify-between bg-gray-300 dark:bg-gray-700 bg-opacity-90 w-full h-16 m-0 shadow-lg">
+      <div className="flex flex-row items-center justify-between w-full h-16 m-0 bg-gray-300 dark:bg-gray-700 bg-opacity-90 shadow-lg">
         <div className="hidden lg:flex ml-3 font-mono text-3xl tracking-widest font-bold text-cyan-500">
           MUZIC
         </div>
