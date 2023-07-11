@@ -6,15 +6,15 @@ import { Route, Routes } from 'react-router-dom';
 import { Topbar, Sidebar, MusicPlayer, Loader, Footer } from './components';
 import {
   ArtistDetails,
-  TopArtists,
-  AroundYou,
   Discover,
   Search,
   SongDetails,
   TopCharts,
 } from './pages';
 
-import { useGetListsQuery } from './redux/services/shazamCore';
+import { data } from './assets'; //mock data to reduce api calls
+
+// import { useGetListsQuery } from './redux/services/shazamCore';
 import { selectGenreListId } from './redux/features/playerSlice';
 
 const App = () => {
@@ -34,22 +34,24 @@ const App = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const {
-    data: data_lists,
-    isFetching: isFetching_lists,
-    error: error_lists,
-  } = useGetListsQuery();
+  // const {
+  //   data: data_lists,
+  //   isFetching: isFetching_lists,
+  //   error: error_lists,
+  // } = useGetListsQuery();
 
-  const countries = data_lists?.countries;
+  // console.log(data);
+
+  const countries = data?.countries;
   const country_chart = countries?.find((el) => el.id === country);
 
   useEffect(() => {
     dispatch(selectGenreListId(country_chart?.listid));
+
     // eslint-disable-next-line
   }, [country_chart]);
 
-  if (loading || isFetching_lists || error_lists)
-    return <Loader title="Loading Songs around you..." />;
+  if (loading) return <Loader title="Loading Songs around you..." />;
 
   return (
     <div className="relative flex max-w-[1920px] mx-auto">
@@ -64,13 +66,11 @@ const App = () => {
                 path="/"
                 element={<Discover country_chart={country_chart} />}
               />
-              <Route path="/top-artists" element={<TopArtists />} />
               <Route
                 path="/top-charts"
-                element={<TopCharts countries={countries} data={data_lists} />}
+                element={<TopCharts countries={countries} data={data} />}
               />
-              <Route path="/around-you" element={<AroundYou />} />
-              <Route path="/artists/:id" element={<ArtistDetails />} />
+              <Route path="/artists/:artistid" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
             </Routes>

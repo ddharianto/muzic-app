@@ -8,7 +8,12 @@ import record_red from './record_red.png';
 import record_yellow from './record_yellow.png';
 import record_logo from './record_logo.svg';
 import glazersout from './glazersout.png';
+import apple_music from './apple_music.png';
 import user from './user.png';
+import data from './data.json';
+import worldwide_chart from './worldwide_chart.json';
+import indonesia_chart from './indonesia_chart.json';
+import song_details from './song_details.json';
 
 import { BiLogoInstagram, BiLogoTwitter, BiLogoFacebook } from 'react-icons/bi';
 
@@ -79,6 +84,10 @@ export const footer = [
 ];
 
 export {
+  song_details,
+  data,
+  worldwide_chart,
+  indonesia_chart,
   logo,
   loader,
   record_blue,
@@ -90,4 +99,5 @@ export {
   record_logo,
   glazersout,
   user,
+  apple_music,
 };

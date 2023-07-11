@@ -47,6 +47,7 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
         <p className="flex flex-row justify-start items-center text-white group">
           <Link
             to={`/songs/${song?.key}`}
+            // to={`/songs/665462884`} // mock id
             className="truncate max-w-[195px] font-semibold text-[15px] hover:underline"
           >
             {song.title}

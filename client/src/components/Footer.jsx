@@ -22,13 +22,13 @@ const Footer = () => {
             <span className="mb-1 text-lg font-semibold tracking-wide text-gray-500">
               {el.title}
             </span>
-            {el.links.map((link) => {
+            {el.links.map((link, i) => {
               return link?.icon !== undefined ? (
-                <Link key={link.title} to={link.to}>
+                <Link key={i} to={link.to}>
                   <link.icon className="w-8 h-8 hover:text-cyan-500" />
                 </Link>
               ) : (
-                <Link key={link.title} to={link.to}>
+                <Link key={i} to={link.to}>
                   <span className="hover:underline font-light text-sm">
                     {link?.title}
                   </span>

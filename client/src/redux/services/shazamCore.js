@@ -7,13 +7,16 @@ export const shazamApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         'X-RapidAPI-Key',
-        process.env.REACT_APP_SHAZAM_CORE_RAPID_API_KEY
+        process.env.REACT_APP_SHAZAM_CORE_RAPID_API_KEY_2
       );
 
       return headers;
     },
   }),
   endpoints: (builder) => ({
+    getSongDetails: builder.query({
+      query: (songid) => `/songs/get-details?key=${songid}&locale=en-US`,
+    }),
     getTopChart: builder.query({
       query: (track) =>
         `/charts/track?locale=en-US&listId=${track}&pageSize=20&startFrom=0`,
@@ -23,7 +26,7 @@ export const shazamApi = createApi({
         `/charts/track?locale=en-US&listId=${track}&pageSize=20&startFrom=0`,
     }),
     getWorldwideChart: builder.query({
-      query: (track) =>
+      query: () =>
         `/charts/track?locale=en-US&listId=genre-global-chart-12&pageSize=20&startFrom=0`,
     }),
     getLists: builder.query({
@@ -33,6 +36,7 @@ export const shazamApi = createApi({
 });
 
 export const {
+  useGetSongDetailsQuery,
   useGetTopChartQuery,
   useGetWorldwideChartQuery,
   useGetCountryChartQuery,

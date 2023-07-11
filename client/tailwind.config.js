@@ -3,6 +3,7 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      backgroundImage: 'url(./src/assets/glazersout.png)',
       colors: {
         black: '#191624',
       },

@@ -113,7 +113,9 @@ const MusicPlayer = () => {
         <Link to={activeSong?.hub?.options[0]?.actions[0]?.uri} target="_blank">
           <img
             alt="song_img"
-            src={activeSong.hub?.image}
+            src={
+              'https://images.shazam.com/static/icons/hub/web/v5/applemusic.png'
+            }
             className="w-full h-6 bg-black border-4 rounded-full border-black cursor-pointer"
           />
         </Link>

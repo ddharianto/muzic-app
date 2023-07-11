@@ -1,0 +1,308 @@
+{
+    "layout": "5",
+    "type": "MUSIC",
+    "key": "665462884",
+    "title": "Terminator",
+    "subtitle": "King Promise",
+    "images": {
+        "background": "https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/f8/dc/24/f8dc24b4-8d12-12f7-bae6-71fe381ada6b/pr_source.png/800x800cc.jpg",
+        "coverart": "https://is4-ssl.mzstatic.com/image/thumb/Music126/v4/84/ae/66/84ae66de-2727-c546-5d3d-a04a9a28ef43/196871089609.jpg/400x400cc.jpg",
+        "coverarthq": "https://is4-ssl.mzstatic.com/image/thumb/Music126/v4/84/ae/66/84ae66de-2727-c546-5d3d-a04a9a28ef43/196871089609.jpg/400x400cc.jpg",
+        "joecolor": "b:020202p:ffffffs:ffcfb4t:ccccccq:cca590"
+    },
+    "share": {
+        "subject": "Terminator - King Promise",
+        "text": "Terminator by King Promise",
+        "href": "https://www.shazam.com/track/665462884/terminator",
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music126/v4/84/ae/66/84ae66de-2727-c546-5d3d-a04a9a28ef43/196871089609.jpg/400x400cc.jpg",
+        "twitter": "I used @Shazam to discover Terminator by King Promise.",
+        "html": "https://www.shazam.com/snippets/email-share/665462884?lang=en-US&country=US",
+        "avatar": "https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/f8/dc/24/f8dc24b4-8d12-12f7-bae6-71fe381ada6b/pr_source.png/800x800cc.jpg",
+        "snapchat": "https://www.shazam.com/partner/sc/track/665462884"
+    },
+    "hub": {
+        "type": "APPLEMUSIC",
+        "image": "https://images.shazam.com/static/icons/hub/ios/v5/applemusic_{scalefactor}.png",
+        "actions": [
+            {
+                "name": "apple",
+                "type": "applemusicplay",
+                "id": "1685912942"
+            },
+            {
+                "name": "apple",
+                "type": "uri",
+                "uri": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/39/5a/98/395a9804-a771-a096-37da-d113fb36d9a4/mzaf_4594429543370329694.plus.aac.ep.m4a"
+            }
+        ],
+        "options": [
+            {
+                "caption": "OPEN",
+                "actions": [
+                    {
+                        "name": "hub:applemusic:deeplink",
+                        "type": "applemusicopen",
+                        "uri": "https://music.apple.com/us/album/terminator/1685912941?i=1685912942&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_ios"
+                    },
+                    {
+                        "name": "hub:applemusic:deeplink",
+                        "type": "uri",
+                        "uri": "https://music.apple.com/us/album/terminator/1685912941?i=1685912942&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_ios"
+                    }
+                ],
+                "beacondata": {
+                    "type": "open",
+                    "providername": "applemusic"
+                },
+                "image": "https://images.shazam.com/static/icons/hub/ios/v5/overflow-open-option_{scalefactor}.png",
+                "type": "open",
+                "listcaption": "Open in Apple Music",
+                "overflowimage": "https://images.shazam.com/static/icons/hub/ios/v5/applemusic-overflow_{scalefactor}.png",
+                "colouroverflowimage": false,
+                "providername": "applemusic"
+            },
+            {
+                "caption": "BUY",
+                "actions": [
+                    {
+                        "type": "uri",
+                        "uri": "https://itunes.apple.com/us/album/terminator/1685912941?i=1685912942&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=itunes&itsct=Shazam_ios"
+                    }
+                ],
+                "beacondata": {
+                    "type": "buy",
+                    "providername": "itunes"
+                },
+                "image": "https://images.shazam.com/static/icons/hub/ios/v5/itunes-overflow-buy_{scalefactor}.png",
+                "type": "buy",
+                "listcaption": "Buy on iTunes",
+                "overflowimage": "https://images.shazam.com/static/icons/hub/ios/v5/itunes-overflow-buy_{scalefactor}.png",
+                "colouroverflowimage": false,
+                "providername": "itunes"
+            }
+        ],
+        "providers": [
+            {
+                "caption": "Open in Spotify",
+                "images": {
+                    "overflow": "https://images.shazam.com/static/icons/hub/ios/v5/spotify-overflow_{scalefactor}.png",
+                    "default": "https://images.shazam.com/static/icons/hub/ios/v5/spotify_{scalefactor}.png"
+                },
+                "actions": [
+                    {
+                        "name": "hub:spotify:searchdeeplink",
+                        "type": "uri",
+                        "uri": "spotify:search:Terminator%20King%20Promise"
+                    }
+                ],
+                "type": "SPOTIFY"
+            },
+            {
+                "caption": "Open in Deezer",
+                "images": {
+                    "overflow": "https://images.shazam.com/static/icons/hub/ios/v5/deezer-overflow_{scalefactor}.png",
+                    "default": "https://images.shazam.com/static/icons/hub/ios/v5/deezer_{scalefactor}.png"
+                },
+                "actions": [
+                    {
+                        "name": "hub:deezer:searchdeeplink",
+                        "type": "uri",
+                        "uri": "deezer-query://www.deezer.com/play?query=%7Btrack%3A%27Terminator%27%20artist%3A%27King+Promise%27%7D"
+                    }
+                ],
+                "type": "DEEZER"
+            }
+        ],
+        "explicit": false,
+        "displayname": "APPLE MUSIC"
+    },
+    "url": "https://www.shazam.com/track/665462884/terminator",
+    "artists": [
+        {
+            "id": "42",
+            "adamid": "973237091"
+        }
+    ],
+    "isrc": "GBARL2300512",
+    "genres": {
+        "primary": "World"
+    },
+    "urlparams": {
+        "{tracktitle}": "Terminator",
+        "{trackartist}": "King+Promise"
+    },
+    "myshazam": {
+        "apple": {
+            "actions": [
+                {
+                    "name": "myshazam:apple",
+                    "type": "uri",
+                    "uri": "https://music.apple.com/us/album/terminator/1685912941?i=1685912942&mttnagencyid=s2n&mttnsiteid=125115&mttn3pid=Apple-Shazam&mttnsub1=Shazam_ios&mttnsub2=5348615A-616D-3235-3830-44754D6D5973&itscg=30201&app=music&itsct=Shazam_ios"
+                }
+            ]
+        }
+    },
+    "albumadamid": "1685912941",
+    "sections": [
+        {
+            "type": "SONG",
+            "metapages": [
+                {
+                    "image": "https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/f8/dc/24/f8dc24b4-8d12-12f7-bae6-71fe381ada6b/pr_source.png/800x800cc.jpg",
+                    "caption": "King Promise"
+                },
+                {
+                    "image": "https://is4-ssl.mzstatic.com/image/thumb/Music126/v4/84/ae/66/84ae66de-2727-c546-5d3d-a04a9a28ef43/196871089609.jpg/400x400cc.jpg",
+                    "caption": "Terminator"
+                }
+            ],
+            "tabname": "Song",
+            "metadata": [
+                {
+                    "title": "Album",
+                    "text": "Terminator - Single"
+                },
+                {
+                    "title": "Label",
+                    "text": "5K Records Limited"
+                },
+                {
+                    "title": "Released",
+                    "text": "2023"
+                }
+            ]
+        },
+        {
+            "type": "LYRICS",
+            "text": [
+                "Killbeatz, let's go",
+                "Oh, ah-ah, oh-ah-nah, oh-ah, nana",
+                "Oh-ooh-oh",
+                "Oh, ah-ah, oh-ah-nah, oh-ah, ah-ah",
+                "",
+                "Yeah",
+                "I'm at a point in life, if you understand me or not",
+                "Misunderstand me or not",
+                "Me, I'm okay, I'm okay",
+                "",
+                "And if you think I'm wrong or not",
+                "Long as it's what I want",
+                "Me, I'm okay, I'm okay",
+                "",
+                "'Cause, who are you to judge me like say you be holy pass?",
+                "I dey love my life, get my peace of mind, I dey try survive",
+                "We all be sinners, my paddy, nobody holy pass",
+                "And my happiness comes first, I never come life to stress",
+                "",
+                "Ooh-nah, ah, ooh",
+                "I be like terminator",
+                "I dey deliver, I pass doctor",
+                "",
+                "Ooh-nah, ah, ooh",
+                "I be like terminator",
+                "I dey deliver, ah, I pass doctor",
+                "",
+                "Ooh-nah, ah, ooh",
+                "I be like terminator",
+                "I dey deliver, I pass doctor",
+                "",
+                "Ooh-nah, ah, ooh",
+                "I be like terminator",
+                "I dey deliver, ah, I pass doctor, eh",
+                "",
+                "Oh, ah-ah, oh-ah-nah, oh-ah, nana",
+                "Oh-ooh-oh",
+                "Oh, ah-ah, oh-ah-nah, oh-ah, nana",
+                "I no for shout, they know me",
+                "",
+                "Me, I no dey care for stunting",
+                "I only care for money",
+                "I never care for perfect",
+                "As long as I'm happy",
+                "I say, me, I no for shout, they know me",
+                "Young boy, but an OG (ah-ah, ah-ah)",
+                "Six years no be small thing",
+                "And since I enter the game, fatality, yeah",
+                "",
+                "See, all the troubled days, sleepless nights",
+                "Things I see inside life",
+                "I dey kae, chale, the things I see",
+                "No dey live to impress nobody",
+                "Them be dey doubt my thing",
+                "Them forget sɛ onipa nyɛ Nyame",
+                "Oh no, oh yeah, oh no",
+                "",
+                "'Cause, who are you to judge me like say you be holy pass?",
+                "I dey love my life, get my peace of mind, I dey try survive",
+                "We all be sinners, my paddy, nobody holy pass",
+                "And my happiness comes first, I never come life to stress, yeah, yeah",
+                "",
+                "Ooh-nah, ah, ooh",
+                "I be like terminator",
+                "I dey deliver, I pass doctor",
+                "",
+                "Ooh-nah, ah, ooh",
+                "I be like terminator",
+                "I dey deliver, ah, I pass doctor",
+                "",
+                "Ooh-nah, ah, ooh",
+                "I be like terminator",
+                "I dey deliver, I pass doctor",
+                "",
+                "Ooh-nah, ah, ooh",
+                "I be like terminator",
+                "I dey deliver, ah, I pass doctor, eh",
+                "",
+                "Oh no, ah-ah, oh-ah-nah, oh-ah, nana",
+                "Oh-ooh-oh",
+                "Oh, ah-ah, oh-ah-nah, oh-ah, nana (nobody holy pass)",
+                "Yeah-yeah, oh, ah-nah",
+                "I no for shout, they know me, yeah",
+                "",
+                "It's King, King Promise, yeah-yeah"
+            ],
+            "footer": "Writer(s): Joseph Addison, Gregory Newman\nLyrics powered by www.musixmatch.com",
+            "tabname": "Lyrics",
+            "beacondata": {
+                "lyricsid": "31834173",
+                "providername": "musixmatch",
+                "commontrackid": "159137395"
+            }
+        },
+        {
+            "type": "VIDEO",
+            "tabname": "Video",
+            "youtubeurl": {
+                "caption": "King Promise - Terminator (Visualiser)",
+                "image": {
+                    "dimensions": {
+                        "width": 1280,
+                        "height": 720
+                    },
+                    "url": "https://i.ytimg.com/vi/xaEsUs6WwtA/maxresdefault.jpg"
+                },
+                "actions": [
+                    {
+                        "name": "video:youtube",
+                        "type": "webview",
+                        "share": {
+                            "subject": "Terminator - King Promise",
+                            "text": "Terminator by King Promise",
+                            "href": "https://www.shazam.com/track/665462884/terminator",
+                            "image": "https://is4-ssl.mzstatic.com/image/thumb/Music126/v4/84/ae/66/84ae66de-2727-c546-5d3d-a04a9a28ef43/196871089609.jpg/400x400cc.jpg",
+                            "twitter": "I used @Shazam to discover Terminator by King Promise.",
+                            "html": "https://www.shazam.com/snippets/email-share/665462884?lang=-&country=US",
+                            "avatar": "https://is2-ssl.mzstatic.com/image/thumb/Music122/v4/f8/dc/24/f8dc24b4-8d12-12f7-bae6-71fe381ada6b/pr_source.png/800x800cc.jpg",
+                            "snapchat": "https://www.shazam.com/partner/sc/track/665462884"
+                        },
+                        "uri": "https://youtu.be/xaEsUs6WwtA?autoplay=1"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "RELATED",
+            "tabname": "Related"
+        }
+    ]
+}
