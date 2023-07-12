@@ -1,21 +1,16 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  // DetailsHeader,
-  Error,
-  Loader,
-  // RelatedSongs
-} from '../components';
+import { Error, Loader } from '../components';
 import PlayPause from '../components/PlayPause';
 
 import { BsExplicit } from 'react-icons/bs';
 import { BiCopyright } from 'react-icons/bi';
 
 import {
-  // song_details,
+  // song_details, //mock data to reduce api calls
   apple_music,
-} from '../assets'; //mock data to reduce api calls
+} from '../assets';
 
 import { setActiveSong, playPause } from '../redux/features/playerSlice';
 import { useGetSongDetailsQuery } from '../redux/services/shazamCore';
@@ -44,7 +39,7 @@ const SongDetails = () => {
     .split('/')[3]
     .split('?')[0];
 
-  // console.log(songData);
+  console.log(songData);
 
   // const data = song_details;
   // const bg_image = song_details?.images?.background;
@@ -60,7 +55,7 @@ const SongDetails = () => {
   //   .split('?')[0];
   // console.log(song_details);
 
-  if (isFetchingSongDetails) return <Loader title="Searching song details" />;
+  if (isFetchingSongDetails) return <Loader />;
 
   if (error) return <Error />;
 

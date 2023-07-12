@@ -40,7 +40,7 @@ const Discover = ({ country_chart }) => {
   const top_countryChart = indonesia_chart?.tracks;
   const top_countryChart_sliced = top_countryChart?.slice(0, 12);
 
-  console.log(top_countryChart_sliced);
+  // console.log(top_countryChart_sliced);
 
   // Filtered artists
   const top_artists_country = top_countryChart
@@ -72,7 +72,7 @@ const Discover = ({ country_chart }) => {
     })
     ?.slice(0, 10);
 
-  // if (top_artists) return <Loader title="Loading songs..." />;
+  // if (top_artists) return <Loader />;
 
   // if (error_charts || error_countryCharts) return <Error />;
 
@@ -142,7 +142,7 @@ const Discover = ({ country_chart }) => {
         </Swiper>
       </div>
 
-      <div className="w-full flex justify-between items-end flex-row mt-20 mb-10">
+      <div className="w-full flex justify-between items-end flex-row mt-10 mb-10">
         <h2 className="font-bold text-xl lg:text-3xl text-white text-left">
           {`${country_chart_name} Top Chart`}
         </h2>

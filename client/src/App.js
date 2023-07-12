@@ -51,7 +51,7 @@ const App = () => {
     // eslint-disable-next-line
   }, [country_chart]);
 
-  if (loading) return <Loader title="Loading Songs around you..." />;
+  if (loading) return <Loader />;
 
   return (
     <div className="relative flex max-w-[1920px] mx-auto">

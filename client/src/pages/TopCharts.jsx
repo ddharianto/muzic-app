@@ -41,7 +41,7 @@ const TopChart = ({ data, countries }) => {
     dispatch(selectGenreListId(el.listid));
   };
 
-  if (isFetching_topCharts) return <Loader title="Loading songs..." />;
+  if (isFetching_topCharts) return <Loader />;
 
   if (error_topCharts) return <Error />;
 
