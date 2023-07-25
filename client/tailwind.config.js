@@ -11,7 +11,7 @@ module.exports = {
           400: '#F86F03',
         },
         black: '#191624',
-        white: '#FFF6F4',
+        white: '#FFF6F6',
       },
       animation: {
         spinslow: 'spin 5s linear infinite',

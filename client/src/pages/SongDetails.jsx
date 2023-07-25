@@ -34,8 +34,6 @@ const SongDetails = () => {
     .split('/')[3]
     .split('?')[0];
 
-  console.log(data);
-
   if (isFetching) return <Loader />;
 
   if (error) return <Error />;

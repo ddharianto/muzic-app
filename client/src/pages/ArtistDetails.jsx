@@ -13,8 +13,6 @@ const ArtistDetails = () => {
     error,
   } = useGetArtistDetailsQuery(artistid);
 
-  console.log(artistData);
-
   const artistUrl = artistData?.data[0]?.attributes?.url;
 
   if (isFetching) return <Loader />;
