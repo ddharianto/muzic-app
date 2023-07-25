@@ -19,13 +19,13 @@ const Footer = () => {
             key={el.title}
             className=" flex flex-col justify-start items-start"
           >
-            <span className="mb-1 text-lg font-semibold tracking-wide text-black/70">
+            <span className="mb-1 text-lg font-bold tracking-wide text-black/70">
               {el.title}
             </span>
             {el.links.map((link, i) => {
               return link?.icon !== undefined ? (
                 <Link key={i} to={link.to}>
-                  <link.icon className="w-8 h-8 hover:text-cyan-500" />
+                  <link.icon className="w-8 h-8 text-primary hover:text-secondary-400" />
                 </Link>
               ) : (
                 <Link key={i} to={link.to}>

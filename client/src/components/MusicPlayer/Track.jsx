@@ -5,15 +5,13 @@ const Track = ({ isPlaying, isActive, activeSong }) => (
   <div className="flex-1 flex sm:w-[350px] items-center justify-center">
     <div
       className={`${
-        isPlaying && isActive
-          ? 'relative animate-[spin_3s_linear_infinite]'
-          : ''
+        isPlaying && isActive ? 'relative animate-spinslow' : ''
       } relative hidden sm:block h-16 w-16 mr-2`}
     >
       <img
         src={activeSong?.images?.coverart}
         alt="cover art"
-        className="rounded-full"
+        className="rounded-full "
       />
       <div className="absolute h-5 w-5 m-auto top-0 bottom-0 left-0 right-0 bg-red-700 z-10 rounded-full "></div>
       <div className="absolute h-1 w-1 m-auto top-0 bottom-0 left-0 right-0 bg-black z-10 rounded-full "></div>

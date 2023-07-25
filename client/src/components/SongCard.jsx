@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BsExplicitFill } from 'react-icons/bs';
 
 import PlayPause from './PlayPause';
@@ -8,6 +8,7 @@ import { playPause, setActiveSong } from '../redux/features/musicPlayerSlice';
 
 const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
   const dispatch = useDispatch();
+  const { isActive } = useSelector((state) => state.player);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -23,9 +24,7 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
       <div className="relative self-center w-36 h-36 lg:w-48 lg:h-48 group">
         <div
           className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${
-            activeSong?.title === song.title
-              ? 'flex bg-black bg-opacity-70'
-              : 'hidden'
+            activeSong?.title === song.title ? 'flex z-10' : 'hidden'
           }`}
         >
           <PlayPause
@@ -39,7 +38,11 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
         <img
           alt="song_img"
           src={song.images?.coverart}
-          className="w-full h-full rounded-full"
+          className={`w-full h-full rounded-full ${
+            activeSong?.title === song.title && isPlaying && isActive
+              ? ' animate-spinslow'
+              : ''
+          }`}
         />
       </div>
 

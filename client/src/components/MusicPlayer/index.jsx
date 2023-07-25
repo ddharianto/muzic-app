@@ -107,7 +107,7 @@ const MusicPlayer = () => {
         setVolume={setVolume}
       />
       <div className="hidden md:flex flex-row items-center justify-center my-2 mb-5 group">
-        <p className="leading-tight text-xs text-white bg-red-500 border-red-500 rounded border-2 mr-4">
+        <p className="leading-tight text-xs text-white bg-red-500 border-red-500 rounded border-2 mr-4 select-none">
           PREVIEW
         </p>
         <Link to={activeSong?.hub?.options[0]?.actions[0]?.uri} target="_blank">
@@ -119,7 +119,7 @@ const MusicPlayer = () => {
             className="w-full h-6 bg-black border-4 rounded-full border-black cursor-pointer"
           />
         </Link>
-        <span className="absolute w-auto p-2 m-2 min-w-max bottom-10 z-10 rounded-md shadow-md text-white bg-gray-900 text-sm transition-all duration-100 scale-0 origin-center group-hover:scale-100">
+        <span className="absolute w-auto p-2 m-2 min-w-max bottom-10 z-10 rounded-md shadow-md text-white bg-gray-900 text-sm transition-all duration-100 scale-0 origin-center group-hover:scale-100 select-none">
           Listen full song on Apple Music
         </span>
       </div>

@@ -47,66 +47,70 @@ const TopChart = ({ data, countries }) => {
 
   return (
     <div className="flex flex-col">
-      <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
-        <h2 className="font-bold text-3xl text-white text-left">
-          Top Chart {title}
-        </h2>
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-8">
-        {data_topCharts?.tracks?.map((song, i) => (
-          <SongCard
-            key={song.key}
-            song={song}
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            data={data_topCharts?.tracks}
-            i={i}
-          />
-        ))}
-      </div>
-
-      <div className="w-full flex justify-between items-end flex-row mt-10 mb-2">
-        <h2 className="font-bold text-xl lg:text-3xl text-white text-left">
-          Other Charts
-        </h2>
-      </div>
-
-      <div className="flex flex-none flex-row flex-wrap">
-        <div className="relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] bg-inherit text-white">
-          <span>By genre:</span>
+      <div className="bg-secondary-200/30 rounded-md p-2 mt-1">
+        <div className="w-full flex justify-between items-center sm:flex-row flex-col my-2">
+          <h2 className="font-bold text-3xl text-primary text-left">
+            Top Chart {title}
+          </h2>
         </div>
-        {genresSorted.map((genre) => (
-          <div
-            key={genre.id}
-            className={`relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] text-white ${
-              genreListId === genre.listid ? 'bg-white/20' : 'bg-white/5'
-            }  bg-opacity-80 backdrop-blur-sm animate-slideup rounded cursor-pointer hover:ring-2 ring-cyan-500`}
-            onClick={() => {
-              handleClick(genre);
-              setTitle(genre.name);
-            }}
-          >
-            <span>{genre.name}</span>
-          </div>
-        ))}
-        <div className="relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] bg-inherit text-white">
-          <span>By country:</span>
+
+        <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
+          {data_topCharts?.tracks?.map((song, i) => (
+            <SongCard
+              key={song.key}
+              song={song}
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              data={data_topCharts?.tracks}
+              i={i}
+            />
+          ))}
         </div>
-        {countriesSorted.map((country) => (
-          <div
-            key={country.id}
-            className={`relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] text-white ${
-              genreListId === country.listid ? 'bg-white/20' : 'bg-white/5'
-            } bg-opacity-80 backdrop-blur-sm animate-slideup rounded cursor-pointer hover:ring-2 ring-cyan-500`}
-            onClick={() => {
-              handleClick(country);
-              setTitle(country.name);
-            }}
-          >
-            <span>{country.name}</span>
+      </div>
+
+      <div className="bg-secondary-200/30 rounded-md p-2 mt-1">
+        <div className="w-full flex justify-between items-end flex-row my-1">
+          <h2 className="font-bold text-xl lg:text-3xl text-primary text-left">
+            Other Charts
+          </h2>
+        </div>
+
+        <div className="flex flex-none flex-row flex-wrap">
+          <div className="relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] bg-inherit text-primary">
+            <span>By genre:</span>
           </div>
-        ))}
+          {genresSorted.map((genre) => (
+            <div
+              key={genre.id}
+              className={`relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] text-white ${
+                genreListId === genre.listid ? 'bg-primary' : 'bg-primary/50'
+              }  backdrop-blur-sm animate-slideup rounded cursor-pointer hover:ring-2 ring-secondary-400`}
+              onClick={() => {
+                handleClick(genre);
+                setTitle(genre.name);
+              }}
+            >
+              <span>{genre.name}</span>
+            </div>
+          ))}
+          <div className="relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] bg-inherit text-primary">
+            <span>By country:</span>
+          </div>
+          {countriesSorted.map((country) => (
+            <div
+              key={country.id}
+              className={`relative flex justify-center items-center px-2 py-1 m-1 min-w-[20px] text-white ${
+                genreListId === country.listid ? 'bg-primary' : 'bg-primary/50'
+              } backdrop-blur-sm animate-slideup rounded cursor-pointer hover:ring-2 ring-secondary-400`}
+              onClick={() => {
+                handleClick(country);
+                setTitle(country.name);
+              }}
+            >
+              <span>{country.name}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

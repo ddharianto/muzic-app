@@ -124,7 +124,7 @@ const Discover = ({ country_id }) => {
           </h2>
         </div>
 
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col mb-5">
           <Swiper
             slidesPerView="auto"
             spaceBetween={15}

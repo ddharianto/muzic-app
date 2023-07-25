@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Error, Loader } from '../components';
 import PlayPause from '../components/PlayPause';
 
-import { BsExplicit } from 'react-icons/bs';
+import { BsExplicitFill } from 'react-icons/bs';
 import { BiCopyright } from 'react-icons/bi';
 
 import {
@@ -50,12 +50,11 @@ const SongDetails = () => {
   };
 
   return (
-    <div className="flex flex-col">
-      {/* <div className="h-96 w-full bg-black"></div> */}
-      <div className="relative w-full flex flex-col">
+    <div className="flex flex-col flex-wrap">
+      <div className="relative flex flex-col mt-1">
         <div
           className={
-            'xl:h-[600px] h-[300px] w-full bg-cover bg-no-repeat xl:bg-top bg-center'
+            'xl:h-[600px] h-[300px] w-full bg-cover bg-no-repeat xl:bg-top bg-center rounded-md'
           }
           style={{ backgroundImage: `url(${bg_image})` }}
         />
@@ -68,14 +67,14 @@ const SongDetails = () => {
           />
 
           <div className="ml-5">
-            <p className="flex flex-row justify-center items-center font-bold sm:text-2xl text-xl text-white">
+            <p className="flex flex-row justify-center items-center font-bold sm:text-2xl text-xl text-primary">
               {song_title}
               {data?.hub?.explicit && (
-                <BsExplicit className="w-5 h-5 ml-2 mt-1" />
+                <BsExplicitFill className="w-5 h-5 ml-2 mt-1 text-secondary-400" />
               )}
             </p>
             <Link to={`/artists/${artist_id}`} target="_blank">
-              <p className="text-xl text-white mt-2 cursor-pointer hover:underline">
+              <p className="text-xl text-primary mt-2 cursor-pointer hover:underline">
                 {artist_name}
               </p>
             </Link>
@@ -93,7 +92,6 @@ const SongDetails = () => {
               song={data}
               handlePause={handlePauseClick}
               handlePlay={() => handlePlayClick(data, 0)}
-              className="text-gray-700"
             />
             <p className="text-lg font-medium text-current px-1">
               Play Preview
@@ -113,33 +111,37 @@ const SongDetails = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col xl:flex-row my-10 justify-between">
-        <div>
-          <h2 className="text-white text-3xl font-bold">Lyrics:</h2>
 
+      <div className="flex flex-col xl:flex-row justify-between">
+        <div className="w-full bg-secondary-200/50 rounded-md p-2 mt-1">
           <div className="mt-5 ml-5">
-            {/* {data?.sections[1]?.type === 'LYRICS' ? (
-              data?.sections[1]?.text.map((line, i) => ( */}
+            <h2 className="text-primary text-3xl font-bold mb-2">Lyrics:</h2>
             {data?.sections[1]?.type === 'LYRICS' ? (
               data?.sections[1]?.text.map((line, i) => (
-                <p
-                  key={`lyrics-${line}-${i}`}
-                  className="text-white text-base my-1"
-                >
-                  {line}
-                </p>
+                <>
+                  <p
+                    key={`lyrics-${line}-${i}`}
+                    className="text-white text-[15px] my-2 "
+                  >
+                    <span className="bg-primary py-1 px-3">
+                      {line !== '' ? line : '~'}
+                    </span>
+                  </p>
+                </>
               ))
             ) : (
-              <p className="text-white text-base my-1">
-                Sorry, No lyrics found!
+              <p className="text-white text-xl font-bold my-1 ">
+                <span className="bg-primary py-1 px-3">
+                  Sorry, No lyrics found.
+                </span>
               </p>
             )}
 
-            <p className="text-gray-400 text-sm my-5 max-w-[500px]">
+            <p className="text-white text-sm my-5 max-w-[500px]">
               {lyrics_footer}
             </p>
 
-            <p className="text-gray-400 text-sm mb-10">
+            <p className="text-white text-sm my-5">
               <span className="flex flex-row items-center">
                 <BiCopyright className="mr-1" />{' '}
                 {` ${year_released} ${song_label}`}
@@ -148,16 +150,26 @@ const SongDetails = () => {
           </div>
         </div>
 
-        <div className="w-[600px] flex justify-center items-center xl:items-start text-white">
-          {data?.sections[2]?.type === 'VIDEO' && (
+        <div
+          className={`w-full md:min-w-[500px] ${
+            data?.sections[2]?.type === 'VIDEO' ? 'h-[400px]' : 'md:min-h-full'
+          } flex xl:items-start justify-center items-center bg-secondary-200/50 rounded-md lg:ml-1 mt-1`}
+        >
+          {data?.sections[2]?.type === 'VIDEO' ? (
             <iframe
               src={`https://www.youtube.com/embed/${youtube_id}`}
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
               title="video"
-              className="h-[300px] w-screen xl:w-full rounded"
+              className="h-[400px] w-full rounded-md"
             />
+          ) : (
+            <p className="text-white text-xl font-bold m-5 mt-16">
+              <span className="bg-primary py-1 px-3">
+                Sorry, No videos found.
+              </span>
+            </p>
           )}
         </div>
       </div>
