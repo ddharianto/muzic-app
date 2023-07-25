@@ -6,7 +6,7 @@ import {
   nextSong,
   prevSong,
   playPause,
-} from '../../redux/features/playerSlice';
+} from '../../redux/features/musicPlayerSlice';
 import Controls from './Controls';
 import Player from './Player';
 import Seekbar from './Seekbar';

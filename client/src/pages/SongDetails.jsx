@@ -8,11 +8,11 @@ import { BsExplicit } from 'react-icons/bs';
 import { BiCopyright } from 'react-icons/bi';
 
 import {
-  // song_details, //mock data to reduce api calls
+  // song_details as data, //mock data to reduce api calls
   apple_music,
 } from '../assets';
 
-import { setActiveSong, playPause } from '../redux/features/playerSlice';
+import { setActiveSong, playPause } from '../redux/features/musicPlayerSlice';
 import { useGetSongDetailsQuery } from '../redux/services/shazamCore';
 
 const SongDetails = () => {
@@ -20,42 +20,23 @@ const SongDetails = () => {
   const { songid } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  const {
-    data: songData,
-    isFetching: isFetchingSongDetails,
-    error,
-  } = useGetSongDetailsQuery(songid);
+  const { data, isFetching, error } = useGetSongDetailsQuery(songid);
 
-  const data = songData;
-  const bg_image = songData?.images?.background;
-  const cover_image = songData?.images?.coverart;
-  const song_title = songData?.title;
-  const artist_name = songData?.subtitle;
-  const artist_id = songData?.artists[0]?.adamid;
-  const lyrics_footer = songData?.sections[1]?.footer;
-  const year_released = songData?.sections[0]?.metadata[2]?.text;
-  const song_label = songData?.sections[0]?.metadata[1]?.text;
-  const youtube_id = songData?.sections[2]?.youtubeurl?.actions[0]?.uri
+  const bg_image = data?.images?.background;
+  const cover_image = data?.images?.coverart;
+  const song_title = data?.title;
+  const artist_name = data?.subtitle;
+  const artist_id = data?.artists[0]?.adamid;
+  const lyrics_footer = data?.sections[1]?.footer;
+  const year_released = data?.sections[0]?.metadata[2]?.text;
+  const song_label = data?.sections[0]?.metadata[1]?.text;
+  const youtube_id = data?.sections[2]?.youtubeurl?.actions[0]?.uri
     .split('/')[3]
     .split('?')[0];
 
-  console.log(songData);
+  console.log(data);
 
-  // const data = song_details;
-  // const bg_image = song_details?.images?.background;
-  // const cover_image = song_details?.images?.coverart;
-  // const song_title = song_details?.title;
-  // const artist_name = song_details?.subtitle;
-  // const artist_id = song_details?.artists[0]?.adamid;
-  // const lyrics_footer = song_details?.sections[1]?.footer;
-  // const year_released = song_details?.sections[0]?.metadata[2]?.text;
-  // const song_label = song_details?.sections[0]?.metadata[1]?.text;
-  // const youtube_id = song_details?.sections[2]?.youtubeurl?.actions[0]?.uri
-  //   .split('/')[3]
-  //   .split('?')[0];
-  // console.log(song_details);
-
-  if (isFetchingSongDetails) return <Loader />;
+  if (isFetching) return <Loader />;
 
   if (error) return <Error />;
 
@@ -89,17 +70,17 @@ const SongDetails = () => {
           <div className="ml-5">
             <p className="flex flex-row justify-center items-center font-bold sm:text-2xl text-xl text-white">
               {song_title}
-              {songData?.hub?.explicit && (
+              {data?.hub?.explicit && (
                 <BsExplicit className="w-5 h-5 ml-2 mt-1" />
               )}
             </p>
-            <Link to={`/artists/${artist_id}`}>
+            <Link to={`/artists/${artist_id}`} target="_blank">
               <p className="text-xl text-white mt-2 cursor-pointer hover:underline">
                 {artist_name}
               </p>
             </Link>
             <p className="mt-2 px-2 w-fit font-bold tracking-wider text-base text-black rounded-full border-4 border-transparent bg-white">
-              {songData?.genres?.primary}
+              {data?.genres?.primary}
             </p>
           </div>
         </div>
@@ -109,7 +90,7 @@ const SongDetails = () => {
             <PlayPause
               isPlaying={isPlaying}
               activeSong={activeSong}
-              song={songData}
+              song={data}
               handlePause={handlePauseClick}
               handlePlay={() => handlePlayClick(data, 0)}
               className="text-gray-700"
@@ -120,7 +101,7 @@ const SongDetails = () => {
           </div>
           <div className=" rounded border-4 border-transparent bg-white cursor-pointer">
             <Link
-              to={songData?.hub?.options[0]?.actions[0]?.uri}
+              to={data?.hub?.options[0]?.actions[0]?.uri}
               target="_blank"
               className="flex flex-row justify-start items-center"
             >
@@ -137,10 +118,10 @@ const SongDetails = () => {
           <h2 className="text-white text-3xl font-bold">Lyrics:</h2>
 
           <div className="mt-5 ml-5">
-            {/* {songData?.sections[1]?.type === 'LYRICS' ? (
-              songData?.sections[1]?.text.map((line, i) => ( */}
-            {songData?.sections[1]?.type === 'LYRICS' ? (
-              songData?.sections[1]?.text.map((line, i) => (
+            {/* {data?.sections[1]?.type === 'LYRICS' ? (
+              data?.sections[1]?.text.map((line, i) => ( */}
+            {data?.sections[1]?.type === 'LYRICS' ? (
+              data?.sections[1]?.text.map((line, i) => (
                 <p
                   key={`lyrics-${line}-${i}`}
                   className="text-white text-base my-1"
@@ -168,7 +149,7 @@ const SongDetails = () => {
         </div>
 
         <div className="w-[600px] flex justify-center items-center xl:items-start text-white">
-          {songData?.sections[2]?.type === 'VIDEO' && (
+          {data?.sections[2]?.type === 'VIDEO' && (
             <iframe
               src={`https://www.youtube.com/embed/${youtube_id}`}
               frameBorder="0"

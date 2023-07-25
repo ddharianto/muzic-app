@@ -4,15 +4,11 @@
 
 /* Active Navigation Link */
 .active {
-  @apply text-cyan-500;
-}
-
-.active svg {
-  @apply text-cyan-500;
+  @apply text-secondary-200;
 }
 
 .range-slider {
-  @apply text-cyan-500;
+  @apply text-secondary-200;
 }
 
 body {

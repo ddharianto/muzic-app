@@ -24,10 +24,6 @@ export const shazamApi = createApi({
       query: (track) =>
         `/charts/track?locale=en-US&listId=${track}&pageSize=20&startFrom=0`,
     }),
-    getCountryChart: builder.query({
-      query: (track) =>
-        `/charts/track?locale=en-US&listId=${track}&pageSize=20&startFrom=0`,
-    }),
     getWorldwideChart: builder.query({
       query: () =>
         `/charts/track?locale=en-US&listId=genre-global-chart-12&pageSize=20&startFrom=0`,
@@ -41,8 +37,7 @@ export const shazamApi = createApi({
 export const {
   useGetArtistDetailsQuery,
   useGetSongDetailsQuery,
-  useGetTopChartQuery,
   useGetWorldwideChartQuery,
-  useGetCountryChartQuery,
+  useGetTopChartQuery,
   useGetListsQuery,
 } = shazamApi;

@@ -9,7 +9,7 @@ const initialState = {
   genreListId: '',
 };
 
-const playerSlice = createSlice({
+const musicPlayerSlice = createSlice({
   name: 'player',
   initialState,
   reducers: {
@@ -66,6 +66,6 @@ export const {
   prevSong,
   playPause,
   selectGenreListId,
-} = playerSlice.actions;
+} = musicPlayerSlice.actions;
 
-export default playerSlice.reducer;
+export default musicPlayerSlice.reducer;

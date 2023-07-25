@@ -11,11 +11,24 @@ import glazersout from './glazersout.png';
 import apple_music from './apple_music.png';
 import user from './user.png';
 import data from './data.json';
-import worldwide_chart from './worldwide_chart.json';
-import indonesia_chart from './indonesia_chart.json';
+import worldwideChart from './worldwide_chart.json';
+import countryCharts from './indonesia_chart.json';
 import song_details from './song_details.json';
 
 import { BiLogoInstagram, BiLogoTwitter, BiLogoFacebook } from 'react-icons/bi';
+import { BsDisc, BsMusicNoteList, BsMusicNote } from 'react-icons/bs';
+import { FaShoppingCart } from 'react-icons/fa';
+
+export const links = [
+  { name: 'Discover', to: '/', icon: BsDisc },
+  { name: 'Top Charts', to: '/top-charts', icon: BsMusicNote },
+  { name: 'My Playlist', to: '/my-playlist', icon: BsMusicNoteList },
+  { name: 'Shop', to: '/shop', icon: FaShoppingCart, mobile: true },
+  { name: 'Profile', to: '/profile', mobile: true, isLogin: true },
+  { name: 'Login', to: '/login', mobile: true, isLogin: false },
+  { name: 'Register', to: '/register', mobile: true, isLogin: false },
+  { name: 'Logout', mobile: true, isLogin: true },
+];
 
 export const footer = [
   {
@@ -86,8 +99,8 @@ export const footer = [
 export {
   song_details,
   data,
-  worldwide_chart,
-  indonesia_chart,
+  worldwideChart,
+  countryCharts,
   logo,
   loader,
   record_blue,

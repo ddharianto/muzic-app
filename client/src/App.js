@@ -10,16 +10,17 @@ import {
   Search,
   SongDetails,
   TopCharts,
+  PageNotFound,
+  Login,
 } from './pages';
 
-import { data } from './assets'; //mock data to reduce api calls
+// import { data } from './assets'; //mock data to reduce api calls
 
-// import { useGetListsQuery } from './redux/services/shazamCore';
-import { selectGenreListId } from './redux/features/playerSlice';
+import { useGetListsQuery } from './redux/services/shazamCore';
+import { selectGenreListId } from './redux/features/musicPlayerSlice';
 
 const App = () => {
   const dispatch = useDispatch();
-  const [login, setLogin] = useState(false);
   const [country, setCountry] = useState('US');
   const [loading, setLoading] = useState(true);
   const { activeSong } = useSelector((state) => state.player);
@@ -32,40 +33,35 @@ const App = () => {
       .then((res) => setCountry(res?.data?.location.country))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, []);
-
-  // const {
-  //   data: data_lists,
-  //   isFetching: isFetching_lists,
-  //   error: error_lists,
-  // } = useGetListsQuery();
-
-  // console.log(data);
-
-  const countries = data?.countries;
-  const country_chart = countries?.find((el) => el.id === country);
-
-  useEffect(() => {
-    dispatch(selectGenreListId(country_chart?.listid));
 
     // eslint-disable-next-line
-  }, [country_chart]);
+  }, []);
 
-  if (loading) return <Loader />;
+  const { data, isFetching } = useGetListsQuery();
+
+  const countries = data?.countries;
+  const country_id = countries?.find((el) => el.id === country);
+
+  useEffect(() => {
+    dispatch(selectGenreListId(country_id?.listid));
+
+    // eslint-disable-next-line
+  }, [country_id]);
+
+  if (loading || isFetching) return <Loader />;
 
   return (
-    <div className="relative flex max-w-[1920px] mx-auto">
-      <Sidebar login={login} setLogin={setLogin} />
-      <div className="flex-1 flex flex-col justify-between h-screen bg-gradient-to-br from-black to-[#121286]">
-        <Topbar login={login} setLogin={setLogin} />
+    <div className="relative flex w-screen sm:max-w-[1920px] mx-auto">
+      <Sidebar />
+      <div className="flex-1 flex flex-col justify-between h-screen bg-gradient-to-b px-1 from-white from-70% to-secondary-400">
+        <div className="h-16">
+          <Topbar />
+        </div>
 
-        <div className="flex flex-col px-6 h-[calc(100vh-64px)] overflow-y-scroll hide-scrollbar">
-          <div className="flex-1 ">
+        <div className="flex flex-col h-[calc(100vh-64px)] overflow-y-scroll hide-scrollbar">
+          <div className="flex-1">
             <Routes>
-              <Route
-                path="/"
-                element={<Discover country_chart={country_chart} />}
-              />
+              <Route path="/" element={<Discover country_id={country_id} />} />
               <Route
                 path="/top-charts"
                 element={<TopCharts countries={countries} data={data} />}
@@ -73,10 +69,13 @@ const App = () => {
               <Route path="/artists/:artistid" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
+              <Route path="/auth/login" element={<Login />} />
+              <Route path="/auth/logout" element={<Search />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
-            <div className="w-full mt-10 bg-white/5 text-white">
-              <Footer />
-            </div>
+          </div>
+          <div className="w-full mt-1 bg-white/40 text-white rounded-t-md">
+            <Footer />
           </div>
         </div>
       </div>

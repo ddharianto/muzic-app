@@ -5,9 +5,16 @@ module.exports = {
     extend: {
       backgroundImage: 'url(./src/assets/glazersout.png)',
       colors: {
+        primary: '#525FE1',
+        secondary: {
+          200: '#FFA41B',
+          400: '#F86F03',
+        },
         black: '#191624',
+        white: '#FFF6F4',
       },
       animation: {
+        spinslow: 'spin 5s linear infinite',
         slideup: 'slideup 1s ease-in-out',
         slidedown: 'slidedown 1s ease-in-out',
         slideleft: 'slideleft 1s ease-in-out',

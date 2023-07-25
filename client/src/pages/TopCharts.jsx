@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Error, Loader, SongCard } from '../components';
-import { selectGenreListId } from '../redux/features/playerSlice';
+import { selectGenreListId } from '../redux/features/musicPlayerSlice';
 import { useGetTopChartQuery } from '../redux/services/shazamCore';
 
 const TopChart = ({ data, countries }) => {

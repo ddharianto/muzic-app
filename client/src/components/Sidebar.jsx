@@ -1,44 +1,29 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { LOGOUT } from '../redux/features/authSlice';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { RiCloseLine } from 'react-icons/ri';
-import { BsDisc, BsMusicNoteList, BsMusicNote } from 'react-icons/bs';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FiArrowUpRight } from 'react-icons/fi';
 
-import { record_logo } from '../assets';
+import { record_logo, links } from '../assets';
 
-const links = [
-  { name: 'Discover', to: '/', icon: BsDisc },
-  { name: 'Top Charts', to: '/top-charts', icon: BsMusicNote },
-  { name: 'My Playlist', to: '/around-you', icon: BsMusicNoteList },
-  { name: 'Shop', to: '/around-you', icon: FaShoppingCart, mobile: true },
-  { name: 'Profile', to: '/around-you', mobile: true },
-  { name: 'Login', to: '/around-you', mobile: true },
-  { name: 'Logout', to: '/around-you', mobile: true },
-];
-
-const NavLinks = ({ login, mobile, handleClick }) => (
-  <div>
-    {links.map((item) => {
-      return (
-        item.mobile === mobile && (
-          <NavLink
-            key={item.name}
-            to={item.to}
-            className="flex flex-row justify-start items-center my-6 ml-4 md:text-sm text-lg font-medium text-gray-400 hover:text-cyan-400"
-            onClick={() => handleClick && handleClick()}
-          >
-            {item.icon && <item.icon className="w-6 h-6 mr-2" />}
-            {item.name}
-          </NavLink>
-        )
-      );
-    })}
-  </div>
-);
-
-const Sidebar = ({ login, setLogin }) => {
+const Sidebar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isLogin } = useSelector((state) => state.auth);
+
+  const handleLogout = () => {
+    dispatch(LOGOUT());
+    setMobileMenuOpen(false);
+    navigate('/');
+  };
+
+  const handleClick = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -48,11 +33,22 @@ const Sidebar = ({ login, setLogin }) => {
           alt="logo"
           className="w-full h-24 object-contain"
         />
-        <div className="lg:hidden flex justify-center font-mono text-3xl  tracking-widest font-bold text-cyan-500">
+        <div className="lg:hidden flex justify-center mt-4 font-mono text-3xl tracking-widest font-bold text-secondary-200">
           MUZIC
         </div>
-
-        <NavLinks login={login} />
+        <div className="lg:mt-8">
+          {links.map((item) => {
+            return (
+              !item.mobile && (
+                <NavLinks
+                  key={item.name}
+                  item={item}
+                  handleClick={handleClick}
+                />
+              )
+            );
+          })}
+        </div>
       </div>
 
       {/* Mobile sidebar */}
@@ -80,17 +76,64 @@ const Sidebar = ({ login, setLogin }) => {
           alt="logo"
           className="w-full h-24 object-contain"
         />
-        <div className="md:hidden flex justify-center font-mono text-3xl  tracking-widest font-bold text-cyan-500">
-          LOGO
+        <div className="md:hidden flex justify-center mt-4 font-mono text-3xl tracking-widest font-bold text-secondary-200">
+          MUZIC
         </div>
-        <NavLinks
-          login={login}
-          mobile={true}
-          handleClick={() => setMobileMenuOpen(false)}
-        />
+        <div className="mt-8">
+          {links.map((item) => {
+            return (
+              item.icon && (
+                <NavLinks
+                  key={item.name}
+                  item={item}
+                  handleClick={handleClick}
+                />
+              )
+            );
+          })}
+          {/* divider */}
+          <div className="flex-grow border-t border-gray-400 mx-4 my-3"></div>
+          {links.map((item) => {
+            return (
+              item.mobile &&
+              !item.icon &&
+              item.isLogin === isLogin && (
+                <NavLinks
+                  key={item.name}
+                  item={item}
+                  handleClick={
+                    item.name === 'Logout' ? handleLogout : handleClick
+                  }
+                />
+              )
+            );
+          })}
+        </div>
       </div>
       {/* Mobile sidebar ends*/}
     </>
+  );
+};
+
+const NavLinks = ({ item, handleClick }) => {
+  return item.name === 'Logout' ? (
+    <p
+      onClick={() => handleClick && handleClick()}
+      className="flex flex-row justify-start items-center my-4 ml-4 md:text-sm text-lg font-medium text-white hover:text-secondary-400 cursor-pointer"
+    >
+      {item.name}
+    </p>
+  ) : (
+    <NavLink
+      key={item?.name}
+      to={item?.to}
+      className="flex flex-row justify-start items-center my-4 ml-4 md:text-sm text-lg font-medium text-white hover:text-secondary-400"
+      onClick={() => handleClick && handleClick()}
+    >
+      {item.icon && <item.icon className="w-6 h-6 mr-2" />}
+      {item.name}
+      {item.name === 'Shop' && <FiArrowUpRight className="mr-2 mb-2" />}
+    </NavLink>
   );
 };
 
