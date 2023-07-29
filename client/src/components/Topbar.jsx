@@ -106,13 +106,13 @@ const Topbar = () => {
             >
               <Link
                 to={'/around-you'}
-                className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-black hover:bg-secondary-200/30"
+                className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-black hover:bg-secondary-200/20"
               >
                 <FaShoppingCart /> Shop <FiArrowUpRight className="mb-2" />
               </Link>
               <Link
                 to={'/around-you'}
-                className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-black hover:bg-secondary-200/30"
+                className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-black hover:bg-secondary-200/20"
               >
                 <BsMusicNoteList /> My Playlist
               </Link>
@@ -120,13 +120,13 @@ const Topbar = () => {
               <div className="flex-grow border-t border-gray-400 mx-4 my-3"></div>
               <Link
                 to={'/around-you'}
-                className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-black hover:bg-secondary-200/30"
+                className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-black hover:bg-secondary-200/20"
               >
                 Profile
               </Link>
               <Link
                 to={'/'}
-                className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-red-500 hover:bg-secondary-200/30"
+                className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-red-500 hover:bg-secondary-200/20"
                 onClick={() => dispatch(LOGOUT())}
               >
                 <FiLogOut className="rotate-180" /> Log out
