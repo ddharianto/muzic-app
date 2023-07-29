@@ -105,13 +105,13 @@ const Topbar = () => {
               } right-0 z-10 mt-5 w-48 origin-top-right rounded-md bg-white py-1`}
             >
               <Link
-                to={'/around-you'}
+                to={'/shop'}
                 className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-black hover:bg-secondary-200/20"
               >
                 <FaShoppingCart /> Shop <FiArrowUpRight className="mb-2" />
               </Link>
               <Link
-                to={'/around-you'}
+                to={'/my-playlist'}
                 className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-black hover:bg-secondary-200/20"
               >
                 <BsMusicNoteList /> My Playlist
@@ -119,7 +119,7 @@ const Topbar = () => {
               {/* divider */}
               <div className="flex-grow border-t border-gray-400 mx-4 my-3"></div>
               <Link
-                to={'/around-you'}
+                to={'/profile'}
                 className="flex flex-row gap-1 items-center px-4 py-2 font-medium tracking-wider text-sm text-black hover:bg-secondary-200/20"
               >
                 Profile
