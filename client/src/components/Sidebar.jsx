@@ -34,7 +34,7 @@ const Sidebar = () => {
           className="w-full h-24 object-contain"
         />
         <div className="lg:hidden flex justify-center mt-4 font-mono text-3xl tracking-widest font-bold text-secondary-200">
-          MUZIC
+          MUZYK
         </div>
         <div className="lg:mt-8">
           {links.map((item) => {
@@ -77,7 +77,7 @@ const Sidebar = () => {
           className="w-full h-24 object-contain"
         />
         <div className="md:hidden flex justify-center mt-4 font-mono text-3xl tracking-widest font-bold text-secondary-200">
-          MUZIC
+          MUZYK
         </div>
         <div className="mt-8">
           {links.map((item) => {

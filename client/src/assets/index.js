@@ -7,7 +7,6 @@ import record_pink from './record_pink.png';
 import record_red from './record_red.png';
 import record_yellow from './record_yellow.png';
 import record_logo from './record_logo.svg';
-import glazersout from './glazersout.png';
 import apple_music from './apple_music.png';
 import user from './user.png';
 import data from './data.json';
@@ -110,7 +109,6 @@ export {
   record_red,
   record_yellow,
   record_logo,
-  glazersout,
   user,
   apple_music,
 };

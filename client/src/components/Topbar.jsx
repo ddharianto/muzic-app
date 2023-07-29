@@ -63,7 +63,7 @@ const Topbar = () => {
   return (
     <div className="flex flex-row items-center justify-between h-16 w-full bg-secondary-200/90 shadow-lg rounded-b-md">
       <div className="hidden lg:flex ml-3 font-mono text-3xl tracking-widest font-bold text-white">
-        MUZIC
+        MUZYK
       </div>
 
       <form
