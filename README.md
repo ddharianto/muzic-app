@@ -1,5 +1,5 @@
 # Muzyk App
-This is a music app cloned from [project_music_player](https://github.com/adrianhajdin/project_music_player) created by [Adrian Hajdin](https://github.com/adrianhajdin) with a few tweaks on design and some other features.
+This is a front-end music app cloned from [project_music_player](https://github.com/adrianhajdin/project_music_player) created by [Adrian Hajdin](https://github.com/adrianhajdin) with a few tweaks on design and some other features. This app is using Tailwind as the main CSS styling framework and Redux for handling data/state returned from the Shazam API of RapidAPI.
 
 ## Features
 - Music Player with Play, Pause, Shuffle, Next, and Previous functionality
