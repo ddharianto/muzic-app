@@ -107,7 +107,7 @@ const Discover = ({ country_id }) => {
         </div>
 
         <div className="flex flex-wrap lg:ml-8 md:flex-wrap justify-start gap-6 lg:gap-8">
-          {/* {top_countryChart_sliced?.map((song, i) => (
+          {top_countryChart_sliced?.map((song, i) => (
             <SongCard
               key={song?.key}
               song={song}
@@ -116,7 +116,7 @@ const Discover = ({ country_id }) => {
               data={top_countryChart_sliced}
               i={i}
             />
-          ))} */}
+          ))}
         </div>
       </div>
 
@@ -138,7 +138,7 @@ const Discover = ({ country_id }) => {
             observer={true}
             observeParents={true}
           >
-            {/* {top_artists_country?.map((artist) => (
+            {top_artists_country?.map((artist) => (
               <SwiperSlide
                 key={artist?.key}
                 style={{ width: '12%', height: 'auto' }}
@@ -155,7 +155,7 @@ const Discover = ({ country_id }) => {
                   {artist.subtitle}
                 </Link>
               </SwiperSlide>
-            ))} */}
+            ))}
           </Swiper>
         </div>
       </div>
