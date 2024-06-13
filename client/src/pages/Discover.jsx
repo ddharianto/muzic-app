@@ -58,9 +58,9 @@ const Discover = ({ country_id }) => {
   // const top_charts = worldwideChart?.tracks;
   // const top_charts_sliced = top_charts?.slice(0, 12);
 
-  if (isFetching_worldwideCharts || isFetching_countryCharts) return <Loader />;
+  // if (isFetching_worldwideCharts || isFetching_countryCharts) return <Loader />;
 
-  if (error_charts || error_countryCharts) return <Error />;
+  // if (error_charts || error_countryCharts) return <Error />;
 
   return (
     <div className="flex flex-col flex-wrap">
@@ -79,7 +79,7 @@ const Discover = ({ country_id }) => {
         </div>
 
         <div className="flex flex-wrap lg:ml-8 md:flex-wrap justify-start gap-6 lg:gap-8">
-          {top_charts_sliced.map((song, i) => (
+          {/* {top_charts_sliced.map((song, i) => (
             <SongCard
               key={song.key}
               song={song}
@@ -88,7 +88,7 @@ const Discover = ({ country_id }) => {
               data={top_charts_sliced}
               i={i}
             />
-          ))}
+          ))} */}
         </div>
       </div>
 
