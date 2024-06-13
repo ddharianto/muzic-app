@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {
+  Swiper,
+  //  SwiperSlide
+} from 'swiper/react';
 import { FreeMode } from 'swiper';
 
 import { SongCard, Loader, Error } from '../components';
@@ -9,10 +12,10 @@ import { RiArrowRightSLine } from 'react-icons/ri';
 
 // import { worldwideChart, countryCharts } from '../assets'; // mock data to reduce api calls
 
-import {
-  useGetWorldwideChartQuery,
-  useGetTopChartQuery,
-} from '../redux/services/shazamCore';
+// import {
+//   useGetWorldwideChartQuery,
+//   useGetTopChartQuery,
+// } from '../redux/services/shazamCore';
 import { selectGenreListId } from '../redux/features/musicPlayerSlice';
 
 import 'swiper/css';
@@ -22,38 +25,38 @@ const Discover = ({ country_id }) => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  const {
-    data: worldwideChart,
-    isFetching: isFetching_worldwideCharts,
-    error: error_charts,
-  } = useGetWorldwideChartQuery();
+  // const {
+  //   data: worldwideChart,
+  //   isFetching: isFetching_worldwideCharts,
+  //   error: error_charts,
+  // } = useGetWorldwideChartQuery();
 
-  const {
-    data: countryCharts,
-    isFetching: isFetching_countryCharts,
-    error: error_countryCharts,
-  } = useGetTopChartQuery(country_id?.listid);
+  // const {
+  //   data: countryCharts,
+  //   isFetching: isFetching_countryCharts,
+  //   error: error_countryCharts,
+  // } = useGetTopChartQuery(country_id?.listid);
 
   const country_chart_name = country_id?.name;
 
-  const top_countryChart = countryCharts?.tracks;
-  const top_countryChart_sliced = top_countryChart?.slice(0, 12);
+  // const top_countryChart = countryCharts?.tracks;
+  // const top_countryChart_sliced = top_countryChart?.slice(0, 12);
 
-  // Filtered artists
-  const top_artists_country = top_countryChart
-    ?.filter((el, i) => {
-      const adamid = el.artists[0].adamid;
-      return (
-        i ===
-        top_countryChart.findIndex((el2) => {
-          return el2.artists[0].adamid === adamid;
-        })
-      );
-    })
-    ?.slice(0, 10);
+  // // Filtered artists
+  // const top_artists_country = top_countryChart
+  //   ?.filter((el, i) => {
+  //     const adamid = el.artists[0].adamid;
+  //     return (
+  //       i ===
+  //       top_countryChart.findIndex((el2) => {
+  //         return el2.artists[0].adamid === adamid;
+  //       })
+  //     );
+  //   })
+  //   ?.slice(0, 10);
 
-  const top_charts = worldwideChart?.tracks;
-  const top_charts_sliced = top_charts?.slice(0, 12);
+  // const top_charts = worldwideChart?.tracks;
+  // const top_charts_sliced = top_charts?.slice(0, 12);
 
   if (isFetching_worldwideCharts || isFetching_countryCharts) return <Loader />;
 
