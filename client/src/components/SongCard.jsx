@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsExplicitFill } from 'react-icons/bs';
 
+import { Error, Loader } from '../components';
+
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/musicPlayerSlice';
 import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
