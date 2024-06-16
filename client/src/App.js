@@ -69,6 +69,7 @@ const App = () => {
               <Route path="/search/:searchTerm" element={<Search />} />
               <Route path="/auth/login" element={<Login />} />
               <Route path="/auth/logout" element={<Search />} />
+              <Route path="/*" element={<PageNotFound />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </div>
