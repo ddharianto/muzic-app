@@ -46,9 +46,9 @@ const TopChart = ({ data, countries }) => {
     dispatch(selectGenreListId(el.listid));
   };
 
-  if (isFetching_topCharts) return <Loader />;
+  // if (isFetching_topCharts) return <Loader />;
 
-  if (error_topCharts) return <Error />;
+  // if (error_topCharts) return <Error />;
 
   return (
     <div className="flex flex-col">
