@@ -5,6 +5,8 @@ import { Error, Loader, SongCard } from '../components';
 import { selectGenreListId } from '../redux/features/musicPlayerSlice';
 import { useGetTopChartQuery } from '../redux/services/shazamCore';
 
+import { worldwideChart, countryCharts } from '../assets'; // mock data to reduce api calls
+
 const TopChart = ({ data, countries }) => {
   const dispatch = useDispatch();
   const { genreListId, activeSong, isPlaying } = useSelector(
@@ -20,11 +22,14 @@ const TopChart = ({ data, countries }) => {
     // eslint-disable-next-line
   }, [genreListId]);
 
-  const {
-    data: data_topCharts,
-    isFetching: isFetching_topCharts,
-    error: error_topCharts,
-  } = useGetTopChartQuery(genreListId);
+  const topChart =
+    genreListId === 'genre-global-chart-12' ? worldwideChart : countryCharts;
+
+  // const {
+  //   data: data_topCharts,
+  //   isFetching: isFetching_topCharts,
+  //   error: error_topCharts,
+  // } = useGetTopChartQuery(genreListId);
 
   const genres = data?.global?.genres;
 
@@ -55,13 +60,13 @@ const TopChart = ({ data, countries }) => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
-          {data_topCharts?.tracks?.map((song, i) => (
+          {topChart?.tracks?.map((song, i) => (
             <SongCard
               key={song.key}
               song={song}
               isPlaying={isPlaying}
               activeSong={activeSong}
-              data={data_topCharts?.tracks}
+              data={topChart?.tracks}
               i={i}
             />
           ))}
