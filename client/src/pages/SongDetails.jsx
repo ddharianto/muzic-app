@@ -13,7 +13,14 @@ import {
 } from '../assets';
 
 import { setActiveSong, playPause } from '../redux/features/musicPlayerSlice';
+import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
 // import { useGetSongDetailsQuery } from '../redux/services/shazamCore';
+
+const artistDetails = (adamid) => {
+  const { data: artistData } = useGetArtistDetailsQuery(adamid);
+
+  return artistData?.data[0]?.attributes?.url;
+};
 
 const SongDetails = () => {
   const dispatch = useDispatch();
@@ -71,7 +78,7 @@ const SongDetails = () => {
                 <BsExplicitFill className="w-5 h-5 ml-2 mt-1 text-secondary-400" />
               )}
             </p>
-            <Link to={`/artists/${artist_id}`} target="_blank">
+            <Link to={artistDetails(artist_id)} target="_blank">
               <p className="text-xl text-primary mt-2 cursor-pointer hover:underline">
                 {artist_name}
               </p>

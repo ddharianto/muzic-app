@@ -5,7 +5,6 @@ import { Route, Routes } from 'react-router-dom';
 
 import { Topbar, Sidebar, MusicPlayer, Loader, Footer } from './components';
 import {
-  ArtistDetails,
   Discover,
   Search,
   SongDetails,
@@ -66,7 +65,6 @@ const App = () => {
                 path="/top-charts"
                 element={<TopCharts countries={countries} data={data} />}
               />
-              <Route path="/artists/:artistid" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
               <Route path="/auth/login" element={<Login />} />

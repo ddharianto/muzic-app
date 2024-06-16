@@ -5,6 +5,13 @@ import { BsExplicitFill } from 'react-icons/bs';
 
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/musicPlayerSlice';
+import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
+
+const artistDetails = (adamid) => {
+  const { data: artistData } = useGetArtistDetailsQuery(adamid);
+
+  return artistData?.data[0]?.attributes?.url;
+};
 
 const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
   const dispatch = useDispatch();
@@ -66,7 +73,7 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
           <Link
             to={
               song.artists
-                ? `/artists/${song?.artists[0]?.adamid}`
+                ? artistDetails(song?.artists[0]?.adamid)
                 : '/top-artists'
             }
             target="_blank"
