@@ -10,21 +10,21 @@ import { BiCopyright } from 'react-icons/bi';
 import {
   song_details as data, //mock data to reduce api calls
   apple_music,
+  artist_details as artistData,
 } from '../assets';
 
 import { setActiveSong, playPause } from '../redux/features/musicPlayerSlice';
-import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
-// import { useGetSongDetailsQuery } from '../redux/services/shazamCore';
+// import { useGetSongDetailsQuery, useGetArtistDetailsQuery } from '../redux/services/shazamCore';
 
 const artistDetails = (adamid) => {
-  const {
-    data: artistData,
-    isFetching,
-    error,
-  } = useGetArtistDetailsQuery(adamid);
+  // const {
+  //   data: artistData,
+  //   isFetching,
+  //   error,
+  // } = useGetArtistDetailsQuery(adamid);
 
-  if (isFetching) return <Loader />;
-  if (error) return <Error />;
+  // if (isFetching) return <Loader />;
+  // if (error) return <Error />;
 
   return artistData?.data[0]?.attributes?.url || '/pagenotfound';
 };

@@ -1,0 +1,132 @@
+{
+    "data": [
+        {
+            "id": "973237091",
+            "type": "artists",
+            "attributes": {
+                "genreNames": [
+                    "Afrobeats"
+                ],
+                "name": "King Promise",
+                "artwork": {
+                    "width": 3934,
+                    "url": "https://is1-ssl.mzstatic.com/image/thumb/AMCArtistImages211/v4/a0/a5/2c/a0a52c1a-3ee3-fb7d-df8c-6f8f6de3c6e8/8a26e508-fff3-4307-9f23-87b51b9f0eaa_file_cropped.png/{w}x{h}bb.jpg",
+                    "height": 3934,
+                    "textColor3": "b99ca0",
+                    "textColor2": "d88f74",
+                    "textColor4": "b57c69",
+                    "textColor1": "dcb6b9",
+                    "bgColor": "2b333e",
+                    "hasP3": false
+                },
+                "url": "https://music.apple.com/us/artist/king-promise/973237091"
+            },
+            "relationships": {
+                "albums": {
+                    "data": [
+                        {
+                            "id": "1746783643",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1633226229",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1508580365",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1529160816",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1587947574",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1529862248",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1659095681",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1646244167",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1510728836",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1524719766",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1508534197",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1628302594",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1694052116",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1483829729",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1698589809",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1439116220",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1478027442",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1508549528",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1590425734",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1382219682",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1288621035",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1438149229",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1497540031",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1566134941",
+                            "type": "albums"
+                        },
+                        {
+                            "id": "1508536671",
+                            "type": "albums"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

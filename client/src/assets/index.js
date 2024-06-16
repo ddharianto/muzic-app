@@ -13,6 +13,7 @@ import data from './data.json';
 import worldwideChart from './worldwide_chart.json';
 import countryCharts from './indonesia_chart.json';
 import song_details from './song_details.json';
+import artist_details from './artist_details.json';
 
 import { BiLogoInstagram, BiLogoTwitter, BiLogoFacebook } from 'react-icons/bi';
 import { BsDisc, BsMusicNoteList, BsMusicNote } from 'react-icons/bs';
@@ -100,6 +101,7 @@ export {
   data,
   worldwideChart,
   countryCharts,
+  artist_details,
   logo,
   loader,
   record_blue,

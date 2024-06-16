@@ -4,22 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BsExplicitFill } from 'react-icons/bs';
 
 import { Error, Loader } from '../components';
+import { artist_details as artistData } from '../assets';
 
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/musicPlayerSlice';
-import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
+// import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
 
 const artistDetails = (adamid) => {
-  const {
-    data: artistData,
-    isFetching,
-    error,
-  } = useGetArtistDetailsQuery(adamid);
+  // const {
+  //   data: artistData,
+  //   isFetching,
+  //   error,
+  // } = useGetArtistDetailsQuery(adamid);
 
-  if (isFetching) return <Loader />;
-  if (error) return <Error />;
-
-  console.log(artistData);
+  // if (isFetching) return <Loader />;
+  // if (error) return <Error />;
 
   return artistData?.data[0]?.attributes?.url || '/pagenotfound';
 };
