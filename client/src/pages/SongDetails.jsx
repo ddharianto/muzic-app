@@ -8,7 +8,7 @@ import { BsExplicitFill } from 'react-icons/bs';
 import { BiCopyright } from 'react-icons/bi';
 
 import {
-  // song_details as data, //mock data to reduce api calls
+  song_details as data, //mock data to reduce api calls
   apple_music,
 } from '../assets';
 
