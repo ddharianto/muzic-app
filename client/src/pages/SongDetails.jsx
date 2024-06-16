@@ -13,14 +13,14 @@ import {
 } from '../assets';
 
 import { setActiveSong, playPause } from '../redux/features/musicPlayerSlice';
-import { useGetSongDetailsQuery } from '../redux/services/shazamCore';
+// import { useGetSongDetailsQuery } from '../redux/services/shazamCore';
 
 const SongDetails = () => {
   const dispatch = useDispatch();
   const { songid } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  const { data, isFetching, error } = useGetSongDetailsQuery(songid);
+  // const { data, isFetching, error } = useGetSongDetailsQuery(songid);
 
   const bg_image = data?.images?.background;
   const cover_image = data?.images?.coverart;
@@ -34,9 +34,9 @@ const SongDetails = () => {
     .split('/')[3]
     .split('?')[0];
 
-  if (isFetching) return <Loader />;
+  // if (isFetching) return <Loader />;
 
-  if (error) return <Error />;
+  // if (error) return <Error />;
 
   const handlePauseClick = () => {
     dispatch(playPause(false));

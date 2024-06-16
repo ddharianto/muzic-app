@@ -7,12 +7,12 @@ import { FreeMode } from 'swiper';
 import { SongCard, Loader, Error } from '../components';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
-// import { worldwideChart, countryCharts } from '../assets'; // mock data to reduce api calls
+import { worldwideChart, countryCharts } from '../assets'; // mock data to reduce api calls
 
-import {
-  useGetWorldwideChartQuery,
-  useGetTopChartQuery,
-} from '../redux/services/shazamCore';
+// import {
+//   useGetWorldwideChartQuery,
+//   useGetTopChartQuery,
+// } from '../redux/services/shazamCore';
 import { selectGenreListId } from '../redux/features/musicPlayerSlice';
 
 import 'swiper/css';
@@ -22,17 +22,17 @@ const Discover = ({ country_id }) => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  const {
-    data: worldwideChart,
-    isFetching: isFetching_worldwideCharts,
-    error: error_charts,
-  } = useGetWorldwideChartQuery();
+  // const {
+  //   data: worldwideChart,
+  //   isFetching: isFetching_worldwideCharts,
+  //   error: error_charts,
+  // } = useGetWorldwideChartQuery();
 
-  const {
-    data: countryCharts,
-    isFetching: isFetching_countryCharts,
-    error: error_countryCharts,
-  } = useGetTopChartQuery(country_id?.listid);
+  // const {
+  //   data: countryCharts,
+  //   isFetching: isFetching_countryCharts,
+  //   error: error_countryCharts,
+  // } = useGetTopChartQuery(country_id?.listid);
 
   const country_chart_name = country_id?.name;
 
@@ -55,9 +55,9 @@ const Discover = ({ country_id }) => {
   const top_charts = worldwideChart?.tracks;
   const top_charts_sliced = top_charts?.slice(0, 12);
 
-  if (isFetching_worldwideCharts || isFetching_countryCharts) return <Loader />;
+  // if (isFetching_worldwideCharts || isFetching_countryCharts) return <Loader />;
 
-  if (error_charts || error_countryCharts) return <Error />;
+  // if (error_charts || error_countryCharts) return <Error />;
 
   return (
     <div className="flex flex-col flex-wrap">
