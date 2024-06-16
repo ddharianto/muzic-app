@@ -19,6 +19,8 @@ const artistDetails = (adamid) => {
   if (isFetching) return <Loader />;
   if (error) return <Error />;
 
+  console.log(artistData);
+
   return artistData?.data[0]?.attributes?.url || '/pagenotfound';
 };
 
