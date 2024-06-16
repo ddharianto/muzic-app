@@ -17,7 +17,7 @@ This is a front-end music app forked from [project_music_player](https://github.
 ### API
 This project is currently using the free version of [Shazam Core](https://rapidapi.com/tipsters/api/shazam-core/) API from [RapidAPI](https://rapidapi.com/hub) which is [Shazam](https://rapidapi.com/apidojo/api/shazam) API. The difference is quite significant, in the free version there are no 'related songs' or 'related artists' and some other features and the fetched data is quite limited. The suggestion is to use the paid version of it or use [Spotify](https://rapidapi.com/Glavier/api/spotify23/) API. 
 
-Update: as per June 2024 there are huge changes in the Shazam/Shazam Core API endpoints such as 'chart/track/\(deprecated\)' and others.
+Update: as per June 2024 there are huge changes in the Shazam/Shazam Core API endpoints such as 'chart/track/'\(deprecated\) and others.
 ### Additional Features
 #### - Recommended songs/artists
 Can be done by using the Shazam Core API or the free version of it but it has limited API calls to test which makes the development of this feature more difficult.
