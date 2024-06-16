@@ -10,7 +10,7 @@ import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
 const artistDetails = (adamid) => {
   const { data: artistData } = useGetArtistDetailsQuery(adamid);
 
-  return artistData?.data[0]?.attributes?.url;
+  return artistData?.data[0]?.attributes?.url || '/pagenotfound';
 };
 
 const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
@@ -70,14 +70,7 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
           )}
         </p>
         <p className="text-sm truncate text-white mt-1 hover:underline group">
-          <Link
-            to={
-              song.artists
-                ? artistDetails(song?.artists[0]?.adamid)
-                : '/top-artists'
-            }
-            target="_blank"
-          >
+          <Link to={artistDetails(song?.artists[0]?.adamid)} target="_blank">
             {song.subtitle}
           </Link>
           <span className="absolute w-auto p-2 m-2 min-w-max -bottom-8 start-1 rounded-md shadow-md text-white bg-gray-900 text-sm transition-all duration-100 scale-0 origin-left group-hover:scale-100">

@@ -19,7 +19,7 @@ import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
 const artistDetails = (adamid) => {
   const { data: artistData } = useGetArtistDetailsQuery(adamid);
 
-  return artistData?.data[0]?.attributes?.url;
+  return artistData?.data[0]?.attributes?.url || '/pagenotfound';
 };
 
 const SongDetails = () => {
